@@ -1,0 +1,39 @@
+ext {
+    var = '4.0.2'
+}// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    
+    repositories {
+        google()
+     //   jcenter()
+        mavenLocal()
+        maven { url 'https://artifacts.mastercard.int:443/artifactory/maven-all' }
+        maven { url 'https://artifacts.mastercard.int/artifactory/maven-all' }
+        
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.2.2'
+        def nav_version = "2.3.0-alpha04"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+        classpath 'org.jacoco:org.jacoco.core:0.8.1'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenLocal()
+        maven { url 'https://artifacts.mastercard.int:443/artifactory/maven-all' }
+        maven { url 'https://artifacts.mastercard.int/artifactory/maven-all' }
+        // jcenter()
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

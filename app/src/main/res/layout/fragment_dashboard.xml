@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.text.Html"/>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.mastercard.consumerreferenceapp.viewmodel.DashboardViewModel" />
+        <variable
+            name="dueDateDetail"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constrainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="32dp"
+        android:paddingTop="56dp"
+        android:paddingEnd="32dp"
+        tools:context=".ui.HomeScreenFragment">
+
+        <TextView
+            android:id="@+id/user_greetings"
+            style="@style/homeScreenHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{viewModel.greeting}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Good Morning,\nEmmanuel Amaobi!" />
+
+
+        <TextView
+            android:id="@+id/next_repayment_amount"
+            style="@style/homeScreenContractDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@{viewModel.nextRepaymentAmountHeader}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/user_greetings"
+            tools:text="A next repayment amount of ₦ 5,633 is due on 25 Dec 2019." />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:layout_constraintBottom_toTopOf="@+id/manageCardBtn"
+            app:layout_constraintTop_toBottomOf="@+id/next_repayment_amount"
+            app:layout_constraintVertical_bias="0.22000003"
+            tools:layout_editor_absoluteX="96dp">
+
+            <ImageView
+                android:id="@+id/progressShadow"
+                android:layout_width="320dp"
+                android:layout_height="320dp"
+                android:layout_marginTop="24dp"
+                android:scaleType="centerInside"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/shared_progress_shadow_green" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/home_screen_center"
+                android:layout_width="256dp"
+                android:layout_height="256dp"
+                android:layout_marginTop="56dp"
+                android:clipChildren="true"
+                android:clipToPadding="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.vaibhavlakhera.circularprogressview.CircularProgressView
+                    android:id="@+id/progressView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:animate="true"
+                    app:animateDuration="600"
+                    app:fillColor="@android:color/transparent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:progressColor="@color/colorCircleGreen"
+                    app:progressRoundCap="true"
+                    app:progressTextColor="#000"
+                    app:progressTextEnabled="false"
+                    app:progressTextSize="32sp"
+                    app:progressTextType="percent"
+                    app:progressWidth="32dp"
+                    app:startAngle="270"
+                    app:total="31"
+                    app:totalColor="@color/colorCircleGreen"
+                    app:totalWidth="32dp" />
+
+                <TextView
+                    android:id="@+id/progress_bar_duration"
+                    style="@style/homeScreenProgressBarDays"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text='@{viewModel.nextRepaymentDays, default="10"}'
+                    android:textAlignment="center"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.4"
+                    tools:text="10" />
+
+                <TextView
+                    android:id="@+id/label_days_left"
+                    style="@style/homeScreenProgressBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="days left"
+                    android:textAlignment="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/progress_bar_duration"
+
+                    app:layout_constraintVertical_bias="1.0"
+                    tools:text="days left" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/contract_end_details_tv"
+                style="@style/homeScreenContractDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="24dp"
+                android:text="@{Html.fromHtml(dueDateDetail)}"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progressShadow"
+                tools:text="Your next due date is 27 April 2020" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <Button
+            android:id="@+id/payNowBtn"
+            style="@style/button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="64dp"
+            android:enabled="@{viewModel.enablePaymentBtn, default=true}"
+            android:onClick="@{() -> viewModel.makePayment()}"
+            android:text="PAY NOW"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/manageCardBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="MANAGE CARD"
+            android:onClick="@{() -> viewModel.addCard()}"
+            android:enabled="@{viewModel.enableManageCardBtn, default=true}"
+            app:layout_constraintBottom_toTopOf="@+id/payNowBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/dashboard_error"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="24dp"
+            android:text="@{viewModel.errorMessage}"
+            android:textAlignment="center"
+            android:textColor="@color/colorCircleDarkRed"
+            android:visibility="@{viewModel.errorMessageVisibility? View.VISIBLE : View.GONE, default=gone}"
+            app:layout_constraintBottom_toTopOf="@+id/manageCardBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/dashboardCancelBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_close" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

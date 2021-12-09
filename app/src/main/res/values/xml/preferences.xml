@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        android:title="General">
+        <DropDownPreference
+            android:key="partner"
+            android:title="Partner"
+            android:defaultValue="@string/default_partner"
+            android:entries="@array/partner_entries"
+            android:entryValues="@array/partner_entry_values"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    <color name="colorPrimary">#008577</color>-->
+<!--    <color name="colorPrimaryDark">#00574B</color>-->
+    <color name="colorPrimary">#ff671b</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#ff671b</color>
+    <color name="colorDarkBlue">#034EA2</color>
+    <color name="colorCircleGreen">#00EEAE</color>
+    <color name="colorCircleBlue">#00B9E1</color>
+    <color name="colorCircleRed">#FF2648</color>
+
+    <color name="colorCircleRedShadowStart">#EDA8BC</color>
+    <color name="colorCircleRedShadowEnd">#EAD6E5</color>
+    <color name="colorCircleDarkRed">#734149</color>
+
+    <color name="colorProgressCircleBlue">#06aedd</color>
+    <color name="colorProgressCircleBlueTotal">#47646e</color>
+
+    <color name="light_grey">#D5D5D5</color>
+    <color name="mc_orange">#ff671b</color>
+
+</resources>

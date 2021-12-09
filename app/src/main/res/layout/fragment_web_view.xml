@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constrainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.WebViewFragment">
+
+        <LinearLayout
+            android:id="@+id/titleLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:cropToPadding="false"
+                app:srcCompat="@drawable/chevron_left" />
+
+            <TextView
+                android:id="@+id/lbl_title"
+                style="@style/textTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                tools:text="Title" />
+
+            <ImageView
+                android:id="@+id/imgClose"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                app:srcCompat="@drawable/ic_close" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/otpTextLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#ff671b"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleLayout">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/tick"
+                android:drawablePadding="10dp"
+                android:paddingRight="5dp"
+                android:text="Your Secure Checkout OTP is"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/otpText"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="123123"
+                android:textAlignment="center"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+        <WebView
+            android:id="@+id/web_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:foregroundTint="#040404"
+            android:foregroundTintMode="add"
+            android:overScrollMode="never"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/otpTextLayout">
+
+        </WebView>
+
+        <ProgressBar
+            android:id="@+id/loadingProgressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            android:progressDrawable="@drawable/progress"
+            app:layout_constraintBottom_toTopOf="@+id/web_view"
+            app:layout_constraintEnd_toEndOf="@+id/web_view"
+            app:layout_constraintStart_toStartOf="@+id/web_view" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

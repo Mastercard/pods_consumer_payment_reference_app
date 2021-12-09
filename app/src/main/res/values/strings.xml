@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Mastercard PoD Consumer App</string>
+
+    <string name="fragment_otp_get_otp">Get OTP</string>
+    <string name="fragment_otp_submit">Submit</string>
+    <string name="fragment_otp_go_back">Go Back</string>
+
+    <string name="currentStateSharedPrefName">CurrentState</string>
+    <string name="currentStateSharedPrefKey">CurrentStateKey</string>
+
+    <string name="lockScreenSupportEmail">support@mastercard.com</string>
+    <string name="lockScreenSupportPhoneNumber">+243 8493057120</string>
+
+    <string name="consumerAppName">Mastercard Pay on Demand App</string>
+    <string name="productName">Mastercard Pay on Demand</string>
+
+    <string name="title_activity_preferences">Preferences</string>
+
+    <string name="default_currency">₦</string>
+    <string name="default_partner">generic</string>
+    <string name="default_persona_name">Emmanuel Amaobi</string>
+    <string name="main_greeting">Hello!</string>
+    <string name="main_description">Thank you for purchasing\n your new phone with us!</string>
+    <string name="scroll_down_to_refresh">Scroll down to refresh</string>
+    <string name="config_dialog_header_text">Configure API Endpoint</string>
+    <string name="confirmation_header_success">Thank You!</string>
+    <string name="confirmation_description_success">Your payment is successful!</string>
+    <string name="confirmation_header_declined">Payment Declined!</string>
+    <string name="confirmation_description_declined">Your payment has been declined!
+Please try again!</string>
+</resources>
