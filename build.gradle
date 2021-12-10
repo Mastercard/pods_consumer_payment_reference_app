@@ -2,12 +2,10 @@ buildscript {
     
     repositories {
         google()
-     //   jcenter()
-        mavenLocal()
-        maven { url 'https://artifacts.mastercard.int:443/artifactory/maven-all' }
-        maven { url 'https://artifacts.mastercard.int/artifactory/maven-all' }
-        
+        mavenCentral()
+        mavenLocal()        
     }
+    
     dependencies {
         classpath 'com.android.tools.build:gradle:4.2.2'
         def nav_version = "2.3.0-alpha04"
@@ -26,10 +24,8 @@ plugins {
 allprojects {
     repositories {
         google()
+        mavenCentral()
         mavenLocal()
-        maven { url 'https://artifacts.mastercard.int:443/artifactory/maven-all' }
-        maven { url 'https://artifacts.mastercard.int/artifactory/maven-all' }
-        // jcenter()
         maven { url 'https://jitpack.io' }
     }
 }
