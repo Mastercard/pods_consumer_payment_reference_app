@@ -34,7 +34,7 @@ public class WebViewFragmentTest extends BaseFragmentTest {
     public void setUp() throws Exception {
         super.setup();
         Bundle fragmentArgs = new Bundle();
-        WebViewData webViewData = new WebViewData(WebViewType.MAKE_PAYMENT, "http://www.google.com", "token", new MutableLiveData<>());
+        WebViewData webViewData = new WebViewData(WebViewType.MAKE_PAYMENT, "http://www.google.com", "token", new MutableLiveData<>(), "bearer", "900");
         fragmentArgs.putParcelable("webViewData", webViewData);
         testNavHostController = NavigationTestHelper.navigationTestSetup(WebViewFragment.class, fragmentArgs, R.id.webViewFragment);
     }
